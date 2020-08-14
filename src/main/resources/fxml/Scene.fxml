@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="652.0" prefWidth="1073.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.maxsoftware.seleniumsandbox.FXMLController">
+    <children>
+      <ComboBox fx:id="comboBox" layoutX="9.0" layoutY="53.0" prefWidth="150.0" promptText="Country" />
+      <CheckBox fx:id="unemploymentCheck" layoutX="9.0" layoutY="88.0" mnemonicParsing="false" selected="true" text="Unemployment Rate" />
+      <TextField fx:id="unemploymentRateSearchTerms" layoutX="159.0" layoutY="84.0" text="unemployment rate in the usa" />
+      <TextField fx:id="unemploymentRate" editable="false" layoutX="317.0" layoutY="84.0" prefHeight="25.0" prefWidth="150.0" />
+      <CheckBox fx:id="yelpCheck" layoutX="9.0" layoutY="126.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="130.0" text="Search Terms" />
+      <TextField fx:id="searchTerms" layoutX="159.0" layoutY="122.0" onKeyTyped="#yelpKeyTyped" promptText="Search For..." />
+      <TextField fx:id="locationText" layoutX="317.0" layoutY="122.0" onKeyTyped="#yelpLocationKeyTyped" promptText="Location" />
+      <TextField fx:id="numQueries" layoutX="657.0" layoutY="122.0" prefHeight="25.0" prefWidth="84.0" promptText="0 for all" text="2" />
+      <CheckBox fx:id="consumerConfidenceCheck" layoutX="9.0" layoutY="161.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="140.0" text="Consumer Confidence" />
+      <TextField fx:id="consumerConfidence" editable="false" layoutX="159.0" layoutY="157.0" />
+        <Button fx:id="button" layoutX="9.0" layoutY="617.0" onAction="#handleButtonAction" text="Fetch" />
+      <Button fx:id="excelBtn" layoutX="80.0" layoutY="617.0" mnemonicParsing="false" onAction="#excelAction" prefHeight="25.0" prefWidth="121.0" text="Export to Excel" />
+      <Label layoutX="492.0" layoutY="125.0" prefHeight="17.0" prefWidth="159.0" text="Pages to fetch (0 for all)" />
+      <MenuBar layoutY="1.0" prefHeight="25.0" prefWidth="140.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem fx:id="updateExcelSpreadsheetMI" mnemonicParsing="false" onAction="#updateSpreadsheet" text="updateExcelSpreadsheet" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <TabPane layoutX="9.0" layoutY="191.0" prefHeight="420.0" prefWidth="1062.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Yelp">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="379.0" prefWidth="1062.0">
+                     <children>
+                        <TableView fx:id="yelpDataTableView" prefHeight="392.0" prefWidth="1062.0">
+                           <columns>
+                              <TableColumn prefWidth="75.0" text="C1" />
+                              <TableColumn prefWidth="75.0" text="C2" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="BBB">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="bBBDataTableView" prefHeight="392.0" prefWidth="1062.0">
+                           <columns>
+                              <TableColumn prefWidth="150.0" text="Name" />
+                              <TableColumn prefWidth="60.0" text="Rating" />
+                              <TableColumn minWidth="0.0" text="Phone" />
+                              <TableColumn prefWidth="172.0" text="Address" />
+                              <TableColumn prefWidth="122.0" text="City" />
+                              <TableColumn prefWidth="73.0" text="State" />
+                              <TableColumn prefWidth="81.0" text="Zip" />
+                           </columns>
+                        </TableView>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="YP">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="yPDataTableView" prefHeight="392.0" prefWidth="1062.0">
+                           <columns>
+                              <TableColumn prefWidth="150.0" text="Name" />
+                              <TableColumn prefWidth="60.0" text="Rating" />
+                              <TableColumn prefWidth="87.0" text="Review Count" />
+                              <TableColumn minWidth="0.0" prefWidth="53.0" text="Phone" />
+                              <TableColumn prefWidth="172.0" text="Address" />
+                              <TableColumn prefWidth="122.0" text="City" />
+                              <TableColumn prefWidth="73.0" text="State" />
+                              <TableColumn prefWidth="81.0" text="Zip" />
+                              <TableColumn prefWidth="323.0" text="URL" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+        <Label fx:id="label" layoutX="210.0" layoutY="619.0" minHeight="16" minWidth="69" prefHeight="17.0" prefWidth="298.0" />
+    </children>
+</AnchorPane>
